@@ -38,13 +38,10 @@ function currentDayWeather(lat,lon) {
     })
 }
 
-
 //UV index
-
 
 //5 day forecast 
 function futureForecast () {
-
 }
 
 //local storage search history 

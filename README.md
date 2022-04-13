@@ -34,4 +34,4 @@ THEN I am again presented with current and future conditions for that city
 
 ## Links 
 - GitHub: https://github.com/KVPang/weather-dashboard
-- Deployed: 
+- Deployed: https://kvpang.github.io/weather-dashboard/
