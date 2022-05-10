@@ -1,6 +1,7 @@
 # Weather Dashboard
 
 ## Description
+A dashboard using the [OpenWeather API](http://openweathermap.org) where a user can search for weather data in any city. 
 
 ## User Story
 ```
