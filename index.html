@@ -12,27 +12,30 @@
     <body>
 
         <!-- header -->
-        <header class ="jumbotron text-center">
-        <h1>Weather Dashboard</h1>
+        <header class="jumbotron text-center">
+            <h1>Weather Dashboard</h1>
         </header>
 
         <!-- search form-->
         <section class="container">
             <div class="row">
-                <div class="col-4">
-        <form>
-            <h3>Search for a city:</h3>
-            <input type="text" id="userSearch">
-            <button class="btn btn-dark" id="btnSubmit">Submit</button>
-          </form></div>
+                <div class="col-3">
+                    <form>
+                        <h3>Search for a city:</h3>
+                        <input type="text" id="userSearch">
+                        <button class="btn btn-dark" id="btnSubmit">Submit</button>
+                    </form>
+                    <div id="weatherHistory"></div>
+                </div>
 
 
-        <!-- current day weather -->
-        <div class="col-4">
-            <section class ="container text-center" id="currentDay">
-                <div id="currentWeather" class="card text-center"></div>
-            </section>
-        </div></div>
+                <!-- current day weather -->
+                <div class="col-8">
+                    <section class="container text-center" id="currentDay">
+                        <div id="currentWeather" class="card text-center"></div>
+                    </section>
+                </div>
+            </div>
         </section>
 
         <br>
@@ -40,12 +43,12 @@
 
         <!-- 5 day weather forecast -->
         <section class="container text-center">
-            <div class="row row-cols-1 row-cols-5" id="5forecast"></div>
-          </section>
+            <div id="w5forecast"></div>
+        </section>
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"> </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <script src="./assets/js/script.js"></script>
     </body>
 </html>

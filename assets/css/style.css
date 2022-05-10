@@ -9,6 +9,11 @@ font-family: 'Anek Devanagari', sans-serif;
 background-image: linear-gradient(30deg, rgb(50, 144, 231), rgb(152, 219, 152), rgb(243, 243, 151));
 }
 
+#currentWeather {
+    padding: 2em;
+    display: none;
+}
+
 h1 {
 text-align: center;
 font-family: 'Anek Devanagari', sans-serif;
@@ -20,8 +25,57 @@ button {
 color: white;
 }
 
-#btnSubmit {
+#btnSubmit, .gb {
     margin: 2px;
     padding: 8px;
     background-color: rgb(152, 219, 152)
+}
+
+/* UV Index */
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.yellow {
+    background-color: yellow;
+    color: black;
+}
+
+.red, .green, .orange, .yellow {
+    padding: 1px 3px;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.allFive {
+    display: flex;
+    flex-direction: row;
+}
+
+.allFive .day {
+    box-sizing: border-box;
+    width: 19%;
+}
+
+.day {
+    margin: 0.2em;
+    padding: 1em;
+}
+
+@media only screen and (max-width: 820px) {
+    .allFive {
+        display: block;
+    }
+    .allFive .day {
+        width: 100%;
+    }
 }
