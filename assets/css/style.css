@@ -56,6 +56,7 @@ color: white;
     border-radius: 4px;
 }
 
+/* 5 day forecast */
 .allFive {
     display: flex;
     flex-direction: row;

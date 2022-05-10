@@ -6,7 +6,6 @@ var day = moment().format("dddd");
 // Clicking submit button 
 $("#btnSubmit").on("click", clickHandler)
 
-
 function clickHandler (event) {
     event.preventDefault()
     var city = $("#userSearch").val();
@@ -47,11 +46,44 @@ function currentDayWeather(lat,lon,city) {
 }
 
 // 5 day forecast 
-function futureForecast () {
+function futureForecast (data, city, weatherHTML) {
+    console.log(data.daily);
+    let dayContent = '<h3>Five day forecast</h3>';
+    dayContent += '<div class="allFive row">';
+    // var thisDay;
+    var iconurl;
+    console.log(data.daily);
+    for(var i = 0; i<5; i++) {
+        let thisDay = data.daily[i];
+        dayContent += '<div class="day col-2">';
+        iconurl = "http://openweathermap.org/img/w/" + thisDay.weather[0].icon + ".png";
+        dayContent += dateString(thisDay.dt);
+        dayContent += '<br><img src="'+iconurl+'" alt="icon">';
+        dayContent += '<br>Temp: '+thisDay.temp.day+'&deg;F';
+        dayContent += '<br>Wind: '+thisDay.wind_speed+' MPH';
+        dayContent += '<br>Humidity: '+thisDay.humidity+' %';
+        dayContent += '</div>';
+    }
+    dayContent += '</div><!-- /#allFive -->';
+    console.log(dayContent);
+    $('#w5forecast').html(dayContent);
+    let weatherTotal = [city, weatherHTML, dayContent];
+    weatherHistory.push(weatherTotal);
+    localStorage.setItem('weatherHistory', JSON.stringify(weatherHistory));
+    regenerateHistory();
 }
 
-// Weather History
-
+function regenerateHistory() {
+    let weatherHistoryString = localStorage.getItem('weatherHistory');
+    let ulContents = '';
+    weatherHistory = JSON.parse(weatherHistoryString);
+    console.log(weatherHistory);
+    for(var i=0; i < 10; i++) {
+        if(weatherHistory[i] !== undefined) {
+            ulContents += '<button class="btn btn-dark gb" onclick="retrieveHistory('+i+')">'+weatherHistory[i][0]+'</button><br>';
+        }}
+    $('#weatherHistory').html(ulContents);
+}
 
 // Date
 function dateString (unix_timestamp) {
