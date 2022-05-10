@@ -11,7 +11,7 @@ function clickHandler (event) {
     var city = $("#userSearch").val();
     citySearch.push(city)
     localStorage.setItem("pastSearch",JSON.stringify(citySearch))
-    var url = "http://api.openweathermap.org/geo/1.0/direct?q="+ city + "&appid=" + apiKey ;
+    var url = "https://api.openweathermap.org/geo/1.0/direct?q="+ city + "&appid=" + apiKey ;
     fetch(url).then(function(response){
         return response.json()
     }).then(function(data){
@@ -56,7 +56,7 @@ function futureForecast (data, city, weatherHTML) {
     for(var i = 0; i<5; i++) {
         let thisDay = data.daily[i];
         dayContent += '<div class="day col-2">';
-        iconurl = "http://openweathermap.org/img/w/" + thisDay.weather[0].icon + ".png";
+        iconurl = "https://openweathermap.org/img/w/" + thisDay.weather[0].icon + ".png";
         dayContent += dateString(thisDay.dt);
         dayContent += '<br><img src="'+iconurl+'" alt="icon">';
         dayContent += '<br>Temp: '+thisDay.temp.day+'&deg;F';
