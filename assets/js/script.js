@@ -1,6 +1,7 @@
 var apiKey = "ae7e404ca71637d851a35c1f1a195ed1";
 var citySearch = JSON.parse(localStorage.getItem("pastSearch"))||[];
 var day = moment().format("dddd");
+var weatherHistory = [];
 
 
 // Clicking submit button 
@@ -48,7 +49,7 @@ function currentDayWeather(lat,lon,city) {
 // 5 day forecast 
 function futureForecast (data, city, weatherHTML) {
     console.log(data.daily);
-    let dayContent = '<h3>Five day forecast</h3>';
+    let dayContent = '<h3><strong>Five Day Forecast</strong></h3>';
     dayContent += '<div class="allFive row">';
     // var thisDay;
     var iconurl;
@@ -83,6 +84,13 @@ function regenerateHistory() {
             ulContents += '<button class="btn btn-dark gb" onclick="retrieveHistory('+i+')">'+weatherHistory[i][0]+'</button><br>';
         }}
     $('#weatherHistory').html(ulContents);
+}
+
+function retrieveHistory(i) {
+    let weatherHistoryString = localStorage.getItem('weatherHistory');
+    weatherHistory = JSON.parse(weatherHistoryString);
+    $('#currentWeather').html(weatherHistory[i][1]);
+    $('#w5forecast').html(weatherHistory[i][2]);
 }
 
 // Date

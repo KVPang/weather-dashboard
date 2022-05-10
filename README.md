@@ -32,6 +32,7 @@ THEN I am again presented with current and future conditions for that city
 
 ## Mock-Up
 ![](./images/mainpage.JPG)
+![](./images/weather_results.JPG)
 
 ## Links 
 - GitHub: https://github.com/KVPang/weather-dashboard
